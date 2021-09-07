@@ -1,4 +1,5 @@
 import React from 'react'
+import './aside.css'
 
 function Aside() {
 
@@ -11,7 +12,7 @@ function Aside() {
                 <span className="material-icons">face</span>
             </button>
             </div>
-            <div></div>
+            <div><p className="testing">holaaa</p></div>
             <div></div>
             <div></div>
             <div></div>

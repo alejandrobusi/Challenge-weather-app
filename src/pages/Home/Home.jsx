@@ -8,38 +8,48 @@ function Home() {
 
 
     useEffect(() => {
-        getLocationWoeid()
+        getLocationCoords()
+        
     }, [])
     
-const getLocationWoeid = async (location="buenos+aires") => {
-    try {
-        const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=-26.8203499,-65.3061695`)
-        // const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${location}`)
-        console.log(response.data)
-        // const woeid = response.data[0].woeid
-        // getWeather(woeid)
-    } catch (error) {
-        console.error(error)
+    const getLocationCoords = async () => {
+        await navigator.geolocation.getCurrentPosition(function(position) {
+            const coords = `${position.coords.latitude}, ${position.coords.longitude}`
+            getLocationWoeid(coords)
+        })
     }
-}
+
+    const getLocationWoeid = async (coords) => {
+        try {
+            const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=${coords}`)            
+            
+            const distancesList = response.data.map(number => number.distance);
+            // const nearestCityDistance = Math.min(...distancesList)
+            // const nearestCity = response.data.filter(city => city.distance === nearestCityDistance)
+            // const woeid = nearestCity[0].woeid
+            // console.log(response.data[1]);
+            const woeid = response.data[1].woeid
+            getWeather(woeid)
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
     const getWeather = async (woeid) => {
         try {
             const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
             setCityWeather(response.data)
-            console.log(response.data);
+            console.log(response.data)
         } catch (error) {
             console.error(error)
-        } finally {
-            console.log(cityWeather.title);
         }
     }
 
 
     return (
         <div className="row container-fluid ps-0 pe-0 ms-0 me-0">
-            <Aside />
-            <Main />
+            <Aside weather={cityWeather}/>
+            <Main weather={cityWeather}/>
         </div>
     )
 }
