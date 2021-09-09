@@ -7,3 +7,8 @@
 .bgLittle {
   background-color: #1e213a;
 }
+
+
+.fixed-width{
+  width: 200px;
+}
