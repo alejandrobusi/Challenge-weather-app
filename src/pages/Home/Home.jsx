@@ -5,15 +5,16 @@ import Main from "../../components/Main/Main";
 
 function Home() {
     const [cityWeather, setCityWeather] = useState({})
+    const [weaklyWeatherList, setWeaklyWeatherList] = useState([])
+    const [loader, setLoader] = useState(true)
 
 
     useEffect(() => {
         getLocationCoords()
-        
     }, [])
     
     const getLocationCoords = async () => {
-        await navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function(position) {
             const coords = `${position.coords.latitude}, ${position.coords.longitude}`
             getLocationWoeid(coords)
         })
@@ -21,7 +22,7 @@ function Home() {
 
     const getLocationWoeid = async (coords) => {
         try {
-            const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=${coords}`)            
+            const response = await axios.get(`https://www.metaweather.com/api/location/search/?lattlong=${coords}`)            
             
             const distancesList = response.data.map(number => number.distance);
             // const nearestCityDistance = Math.min(...distancesList)
@@ -35,11 +36,21 @@ function Home() {
         }
     }
 
-    const getWeather = async (woeid) => {
+    const getWeather = (woeid) => {
         try {
-            const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
-            setCityWeather(response.data)
-            console.log(response.data)
+            // const response = await axios.get(`https://www.metaweather.com/api/location/${woeid}/`)
+            fetch(`https://www.metaweather.com/api/location/${woeid}/`)
+            .then(response => response.json())
+            .then(
+                data => {
+                    console.log(data)
+                    setCityWeather(data)
+                    setWeaklyWeatherList(data.consolidated_weather)
+                    setLoader(false)
+                }
+            );
+
+            // console.log(response.data)
         } catch (error) {
             console.error(error)
         }
@@ -48,8 +59,17 @@ function Home() {
 
     return (
         <div className="row container-fluid ps-0 pe-0 ms-0 me-0">
-            <Aside weather={cityWeather}/>
-            <Main weather={cityWeather}/>
+            {
+                loader ? 
+                    <h2>loading </h2>
+                : 
+                    <>
+                        <Aside weather={cityWeather}/>
+                        <Main weather={weaklyWeatherList} loader={loader}/>
+
+                    </>
+            }
+            
         </div>
     )
 }
