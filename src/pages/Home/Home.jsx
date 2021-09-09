@@ -61,13 +61,13 @@ function Home() {
         <div className="row container-fluid ps-0 pe-0 ms-0 me-0">
             {
                 loader ? 
-                    <h2>loading </h2>
+                <h2>loading </h2>
                 : 
-                    <>
-                        <Aside weather={cityWeather}/>
-                        <Main weather={weaklyWeatherList} loader={loader}/>
+                <>
+                    <Aside weather={cityWeather}/>
+                    <Main weather={weaklyWeatherList}/>
 
-                    </>
+                </>
             }
             
         </div>

@@ -8,9 +8,9 @@ function SideBar() {
       <button className="btn btn-outline-primary my-3 mx-3 me-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         Buscar por lugares
       </button>
-      <span class="material-icons ms-5">gps_fixed</span>
+      <span className="material-icons ms-5">gps_fixed</span>
       </div>
-      <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasExampleLabel">Buscar...</h5>
           <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>

@@ -7,8 +7,8 @@ import Home from "./pages/Home/Home";
 function App() {
   return (
     <div>
-      {/* <Home /> */}
-      <SideBar/>
+      <Home />
+      {/* <SideBar/> */}
     </div>
   );
 }
