@@ -11,9 +11,7 @@ function LittleCards(props) {
       <div className="col-5 col-md-2">
         <div className="card littleBorder mb-3 " >
           <div className="card-header bgLittle text-center text-white littleBorder">{fecha.format(formato)}</div>
-          <div className="card-body bgLittle text-warning text-center">
-            <span className="material-icons sizeIcon">light_mode</span>
-          </div>
+          <img src={`https://www.metaweather.com/static/img/weather/${props.weatherInfo.weather_state_abbr}.svg`} alt="" />
           <div className="card-footer d-flex justify-content-around bgLittle littleBorder text-white">
             <span>
               {
@@ -28,7 +26,7 @@ function LittleCards(props) {
                 celcius?
                 `${Math.round(weatherInfo.min_temp)}°C`
                 :
-                `${Math.round(weatherInfo.min_temp)}°F`
+                `${Math.round(weatherInfo.min_temp*9/5+32)}°F`
               }
             </span>
           </div>

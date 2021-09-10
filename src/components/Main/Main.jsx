@@ -5,7 +5,8 @@ import LittleCards from "../LittleCards/LittleCards";
 function Main(props) {
   const [weaklyWeatherList, setWeaklyWeatherList] = useState([])
   const [celcius, setcelcius] = useState(true)
-  // console.log('si entro ', props.weather)
+  const [dayWeather, setdayWeather] = useState({})
+
   console.log(weaklyWeatherList)
   useEffect(() => {
     setWeaklyWeatherList(props.weather.splice(1))
@@ -25,8 +26,11 @@ function Main(props) {
         weaklyWeatherList.map(card => <LittleCards celcius={celcius} key={card.id} weatherInfo={card} />)
       }
       </div>
-      <div>
-        {/* <BigCards firstDay={weaklyWeatherList[0]} key={weaklyWeatherList.id}/> */}
+      <div className="row">
+        <BigCards windDirectionCompass={props.weather[0].wind_direction_compass} middleValueNumber={props.weather[0].wind_speed} middleValueText={"mph"} title={"Wind Status"} key={weaklyWeatherList.id} showBottomContent={true} />
+        <BigCards middleValueNumber={props.weather[0].humidity} middleValueText={"%"} title={"Humidity"} key={weaklyWeatherList.id} showBottomContent={true} />
+        <BigCards middleValueNumber={props.weather[0].visibility} middleValueText={"miles"} title={"Visibility"} key={weaklyWeatherList.id} showBottomContent={false} />
+        <BigCards middleValueNumber={props.weather[0].air_pressure} middleValueText={"mb"} title={"Air Pressure"} key={weaklyWeatherList.id} showBottomContent={false} />
       </div>
     </div>
   );
