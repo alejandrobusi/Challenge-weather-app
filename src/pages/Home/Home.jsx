@@ -22,7 +22,7 @@ function Home() {
 
     const getLocationWoeid = async (coords) => {
         try {
-            const response = await axios.get(`https://www.metaweather.com/api/location/search/?lattlong=${coords}`)            
+            const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=${coords}`)            
             
             const distancesList = response.data.map(number => number.distance);
             // const nearestCityDistance = Math.min(...distancesList)
@@ -39,7 +39,7 @@ function Home() {
     const getWeather = (woeid) => {
         try {
             // const response = await axios.get(`https://www.metaweather.com/api/location/${woeid}/`)
-            fetch(`https://www.metaweather.com/api/location/${woeid}/`)
+            fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
             .then(response => response.json())
             .then(
                 data => {
