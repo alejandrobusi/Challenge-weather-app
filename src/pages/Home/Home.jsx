@@ -25,10 +25,6 @@ function Home() {
             const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=${coords}`)            
             
             const distancesList = response.data.map(number => number.distance);
-            // const nearestCityDistance = Math.min(...distancesList)
-            // const nearestCity = response.data.filter(city => city.distance === nearestCityDistance)
-            // const woeid = nearestCity[0].woeid
-            // console.log(response.data[1]);
             const woeid = response.data[1].woeid
             getWeather(woeid)
         } catch (error) {
@@ -36,21 +32,12 @@ function Home() {
         }
     }
 
-    const getWeather = (woeid) => {
+    const getWeather = async (woeid) => {
         try {
-            // const response = await axios.get(`https://www.metaweather.com/api/location/${woeid}/`)
-            fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
-            .then(response => response.json())
-            .then(
-                data => {
-                    console.log(data)
-                    setCityWeather(data)
-                    setWeaklyWeatherList(data.consolidated_weather)
-                    setLoader(false)
-                }
-            );
-
-            // console.log(response.data)
+            const response = await axios.get(`https://www.metaweather.com/api/location/${woeid}/`)
+            setCityWeather(response.data.consolidated_weather[0])
+            setWeaklyWeatherList(response.data.consolidated_weather)
+            setLoader(false)
         } catch (error) {
             console.error(error)
         }
