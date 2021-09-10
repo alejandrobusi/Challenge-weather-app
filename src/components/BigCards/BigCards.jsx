@@ -2,6 +2,7 @@ import React from 'react'
 import '../BigCards/bigCards.css'
 
 function BigCards(props) {
+  const {firstDay} = props
   return (
     <div className="col-11 col-md-2 col-lg-2">
       <div className="card littleBorder mb-3 " >
