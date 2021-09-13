@@ -1,21 +1,38 @@
 import React from 'react'
+import moment from 'moment'
 import '../SideBar/sideBar.css'
 
 function SideBar(props) {
+  moment.locale("es")
+  const formato = "dddd, MMMM Do YYYY"
+  const fecha = moment(props.weather.applicable_date);
+  console.log("water" ,props)
   return (
     <div>
       <div className="d-flex align-items-center">
-      <button className="btn btn-outline-primary my-3 mx-3 me-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <button className="btn btn-outline-primary my-3 mx-3 me-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         Buscar por lugares
-      </button>
-      <a href="#"><span className="material-icons ms-5 text-white">gps_fixed</span></a>
+        </button>
+        <a href="#"><span className="material-icons ms-5 text-white">gps_fixed</span></a>
       </div>
-      <img className="w-50" src={`https://www.metaweather.com/static/img/weather/${props.weather.weather_state_abbr}.svg`} alt="" />
-      <h1 className="text-white">15C°</h1>
-      <h3 className="text-white">Shower</h3>
-      <h4 className="text-white">Today 15/5/12</h4>
-      <h6 className="text-white">Buenos Aires iconito</h6>
-      <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div className="d-flex flex-column justity-content-around align-items-center">
+        <img className="w-50 my-5" src={`https://www.metaweather.com/static/img/weather/${props.weather.weather_state_abbr}.svg`} alt="" />
+        <h1 className="my-5 text-white">
+        {/* {
+          celcius?
+                `${Math.round(props.weather.the_temp)}°C`
+                :
+                `${Math.round(props.weather.the_temp*9/5+32)}°F`
+        } */}15graaa
+        </h1>
+        <h3 className="my-5 text-white">Shower</h3>
+        <h4 className="mt-5 text-white upper">{fecha.format(formato)}</h4>
+        <div className="d-flex justify-content-center align-items-center">
+          <span class="material-icons text-white">location_on</span>
+          <h6 className="my-2 text-white">Buenos Aires</h6>
+        </div>
+      </div>
+        <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasExampleLabel">Buscar...</h5>
           <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
