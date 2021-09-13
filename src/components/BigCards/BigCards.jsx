@@ -2,7 +2,6 @@ import React from 'react'
 import '../BigCards/bigCards.css'
 
 function BigCards(props) {
-  console.log("first day" ,props)
   return (
     <div className="col-11 col-md-5 col-lg-5">
       <div className="card littleBorder mb-3 " >

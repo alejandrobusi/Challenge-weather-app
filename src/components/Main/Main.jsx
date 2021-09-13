@@ -5,12 +5,12 @@ import LittleCards from "../LittleCards/LittleCards";
 function Main(props) {
   const [weaklyWeatherList, setWeaklyWeatherList] = useState([])
   const [celcius, setcelcius] = useState(true)
-  const [dayWeather, setdayWeather] = useState({})
+  // const [dayWeather, setdayWeather] = useState({})
 
-  console.log(weaklyWeatherList)
+  
   useEffect(() => {
     setWeaklyWeatherList(props.weather.splice(1))
-  }, [])
+  }, [props.weather])
 
   const toogleDegree = () => {
     setcelcius(!celcius)
