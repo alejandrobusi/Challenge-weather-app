@@ -13,7 +13,7 @@ function SideBar(props) {
   return (
     <div>
       <div className="d-flex align-items-center">
-        <button className="btn btn-outline-primary my-3 mx-3 me-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <button style={{color: "red"}} className="btn btn-outline-primary my-3 mx-3 me-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         Buscar por lugares
         </button>
         <button onClick={props.getLocationCoords}  className="localization-button"><span className="material-icons ms-5 text-white">gps_fixed</span></button>
