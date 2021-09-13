@@ -65,7 +65,7 @@ function Home() {
         let cityTimeOutSearch = setTimeout(() => {
             getLocationCitiesList(value)
             console.log(value)
-        }, 1500);
+        }, 1000);
         setTimeoutId(cityTimeOutSearch)
     }
 

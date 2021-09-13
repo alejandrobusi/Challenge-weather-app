@@ -16,7 +16,7 @@ function Main(props) {
     setcelcius(!celcius)
   }
   return (
-    <div className="col-12 col-sm-8 bg-light vh-100 ">
+    <div className="col-12 col-sm-8 bg-light ">
       <div className="d-flex justify-content-end mt-5 me-5">
         <button className="btn btn-outline-primary mx-2" onClick={toogleDegree}>°C / °F</button>
         
