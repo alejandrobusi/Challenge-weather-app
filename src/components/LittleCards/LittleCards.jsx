@@ -9,24 +9,24 @@ function LittleCards(props) {
   const fecha =moment(weatherInfo.applicable_date)
   return (
       <div className="col-5 col-md-2">
-        <div className="card littleBorder mb-3 " >
-          <div className="card-header bgLittle text-center text-white littleBorder">{fecha.format(formato)}</div>
-          <img src={`https://www.metaweather.com/static/img/weather/${props.weatherInfo.weather_state_abbr}.svg`} alt="" />
+        <div className="card bgLittleCard littleBorder mb-3 " >
+          <div className="card-header bgLittle text-center text-white littleBorder upper">{fecha.format(formato)}</div>
+          <div className="d-flex justify-content-center"><img className="w-75" src={`https://www.metaweather.com/static/img/weather/${props.weatherInfo.weather_state_abbr}.svg`} alt="" /></div>
           <div className="card-footer d-flex justify-content-around bgLittle littleBorder text-white">
-            <span>
-              {
-                celcius ?
-                  `${Math.round(weatherInfo.max_temp)}°C`
-                :
-                `${Math.round(weatherInfo.max_temp*9/5+32)}°F`
-              }
-            </span>
             <span>
               {
                 celcius?
                 `${Math.round(weatherInfo.min_temp)}°C`
                 :
                 `${Math.round(weatherInfo.min_temp*9/5+32)}°F`
+              }
+            </span>
+            <span>
+              {
+                celcius ?
+                  `${Math.round(weatherInfo.max_temp)}°C`
+                :
+                `${Math.round(weatherInfo.max_temp*9/5+32)}°F`
               }
             </span>
           </div>
