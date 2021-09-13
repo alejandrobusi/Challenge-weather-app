@@ -19,3 +19,20 @@ background-color: #1e213a;
 .fixed-width{
 width: 200px;
 }
+
+.citiesList{
+  list-style: none;
+}
+
+.list-item{
+  cursor: pointer;
+}
+
+.localization-button{
+  background: none;
+  border: none;
+}
+
+.list-item:hover{
+  background-color: blue;
+}
