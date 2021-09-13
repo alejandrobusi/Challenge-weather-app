@@ -16,8 +16,8 @@ function Main(props) {
     setcelcius(!celcius)
   }
   return (
-    <div className="col-12 col-sm-8 bg-light ">
-      <div className="d-flex justify-content-end mt-5 me-5">
+    <div className="col-12 col-sm-8 bg-light vh-100 ">
+      <div className="d-flex justify-content-end my-3 me-5">
         <button className="btn btn-outline-primary mx-2" onClick={toogleDegree}>°C / °F</button>
         
       </div>
@@ -26,11 +26,11 @@ function Main(props) {
         weaklyWeatherList.map(card => <LittleCards celcius={celcius} key={card.id} weatherInfo={card} />)
       }
       </div>
-      <div className="row">
-        <BigCards windDirectionCompass={props.weather[0].wind_direction_compass} middleValueNumber={props.weather[0].wind_speed} middleValueText={"mph"} title={"Wind Status"} key={weaklyWeatherList.id} showBottomContent={true} />
-        <BigCards middleValueNumber={props.weather[0].humidity} middleValueText={"%"} title={"Humidity"} key={weaklyWeatherList.id} showBottomContent={true} />
-        <BigCards middleValueNumber={props.weather[0].visibility} middleValueText={"miles"} title={"Visibility"} key={weaklyWeatherList.id} showBottomContent={false} />
-        <BigCards middleValueNumber={props.weather[0].air_pressure} middleValueText={"mb"} title={"Air Pressure"} key={weaklyWeatherList.id} showBottomContent={false} />
+      <div className="row justify-content-center mt-5">
+        <BigCards nameCard={"Estado del viento"} windDirectionCompass={props.weather[0].wind_direction_compass} middleValueNumber={props.weather[0].wind_speed} middleValueText={"mph"} title={"Wind Status"} key={weaklyWeatherList.id} showBottomContent={true} />
+        <BigCards nameCard={"Humedad"} middleValueNumber={props.weather[0].humidity} middleValueText={"%"} title={"Humidity"} key={weaklyWeatherList.id} showBottomContent={true} />
+        <BigCards nameCard={"Visibilidad"} middleValueNumber={props.weather[0].visibility} middleValueText={"miles"} title={"Visibility"} key={weaklyWeatherList.id} showBottomContent={false} />
+        <BigCards nameCard={"Presión del aire"} middleValueNumber={props.weather[0].air_pressure} middleValueText={"mb"} title={"Air Pressure"} key={weaklyWeatherList.id} showBottomContent={false} />
       </div>
     </div>
   );
