@@ -1,12 +1,20 @@
+:root {
+  --primaryColor: #F5D85F; 
+  --secondaryColor: #111111; 
+}
 .sizeFirst {
   font-size: 70px;
 }
 .littleBorder {
-  border-color: #100e1d !important;
+  border-color: var(--primaryColor) !important;
 }
 .bgLittle {
-  background-color: #1e213a;
+  background-color: var(--secondaryColor);
 }
 .sizeSecond {
   font-size: 35px;
+}
+.text-warning {
+  --bs-text-opacity: 1;
+  color: var(--primaryColor) !important;
 }

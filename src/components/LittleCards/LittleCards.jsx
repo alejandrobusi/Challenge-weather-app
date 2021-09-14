@@ -13,7 +13,7 @@ function LittleCards(props) {
           <div className="card-header bgLittle text-center text-white littleBorder upper">
             <span>{fecha.format(formato)}</span>
           </div>
-          <div className="d-flex justify-content-center"><img className="w-75" src={`https://www.metaweather.com/static/img/weather/${props.weatherInfo.weather_state_abbr}.svg`} alt="" /></div>
+          <div className="d-flex justify-content-center"><img className="w-75 mImg" src={`https://www.metaweather.com/static/img/weather/${props.weatherInfo.weather_state_abbr}.svg`} alt="" /></div>
           <div className="card-footer d-flex justify-content-around bgLittle littleBorder text-white">
             <span>
               {
