@@ -22,7 +22,7 @@ Usando la metodologia scrum se pudo dividir las tareas para llevarse a cabo cada
 
 ## Usando GIT... 📦
 
-Ya con un repositorio creado, procedimos a sibur el proyecto para trabajar en equipo creando ramas para cada componente o tarea que se fuera a desarrollar.
+Ya con un repositorio creado, procedimos a subir el proyecto para trabajar en equipo creando ramas para cada componente o tarea que se fuera a desarrollar.
 
 ## Construido con 🛠️
 
