@@ -10,12 +10,15 @@ function Home() {
     const [loader, setLoader] = useState(true)
     const [timeoutId, setTimeoutId] = useState(null)
     const [citiesList, setCitiesList] = useState([])
-
+    const [celcius, setcelcius] = useState(true)
 
     useEffect(() => {
         getLocationCoords()
     }, [])
-    
+    const toogleDegree = () => {
+        setcelcius(!celcius)
+    }
+
     const getLocationCoords = async () => {
         setLoader(true)
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -82,6 +85,7 @@ function Home() {
                 : 
                 <>
                     <Aside 
+                    celcius={celcius}
                     getWeather={getWeather}
                     setLoader={setLoader}
                     citiesList={citiesList}
@@ -90,7 +94,10 @@ function Home() {
                     weather={cityWeather}
                     getLocationCoords={getLocationCoords}
                     />
-                    <Main weather={weaklyWeatherList}/>
+                    <Main celcius={celcius} 
+                    weather={weaklyWeatherList}
+                    toogleDegree={toogleDegree}
+                    />
 
                 </>
             }

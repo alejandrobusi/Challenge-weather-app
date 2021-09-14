@@ -1,16 +1,27 @@
+:root {
+  --primaryColor: #F5D85F; 
+  --secondaryColor: #111111; 
+}
 .littleBorder {
-  border-color: #100e1d !important;
+  border-color: var(--primaryColor) !important;
 }
 .bgLittle {
-  background-color: #1e213a;
+  background-color: var(--secondaryColor);
 }
-
 .fixed-width{
   width: 200px;
 }
 .upper{
   text-transform: capitalize;
 }
+.mImg {
+padding-top: 10%;
+padding-bottom: 10%;
+}
 .bgLittleCard {
-  background-color: #1E213A;
+  background-color: var(--secondaryColor);
+}
+.text-warning {
+  --bs-text-opacity: 1;
+  color: var(--primaryColor) !important;
 }

@@ -6,10 +6,11 @@ import SideBar from '../SideBar/SideBar';
 
 
 function Aside(props) {
-
+    
     return (
         <div className="col-12 col-sm-4 bg-dark">
             <SideBar 
+            celcius={props.celcius}
             setCitiesList={props.setCitiesList}
             getWeather={props.getWeather}
             setLoader={props.setLoader}

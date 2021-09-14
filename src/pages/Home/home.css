@@ -1,6 +1,14 @@
+:root {
+  --primaryColor: #F5D85F; 
+  --secondaryColor: #111111; 
+  --thirdColor: #474747;
+}
 .home{
-  background-image: url(./fondo\ weather.jpg);
-  background-attachment: fixed;
+  background-color: var(--thirdColor);
+}
+.bg-light {
+  --bs-bg-opacity: 0;
+  background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity)) !important;
 }
 .loadingTxt{
   -webkit-filter: drop-shadow(0px 3px 3px #ffffff4f);
