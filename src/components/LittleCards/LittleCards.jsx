@@ -8,7 +8,7 @@ function LittleCards(props) {
   const formato = "ddd Do MMM"
   const fecha =moment(weatherInfo.applicable_date)
   return (
-      <div className="col-5 col-md-2">
+      <div className="col-5 col-md-3">
         <div className="card bgLittleCard littleBorder mb-3 " >
           <div className="card-header bgLittle text-center text-white littleBorder upper">
             <span>{fecha.format(formato)}</span>
