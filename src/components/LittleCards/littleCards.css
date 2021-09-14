@@ -25,3 +25,6 @@ padding-bottom: 10%;
   --bs-text-opacity: 1;
   color: var(--primaryColor) !important;
 }
+.card-header{
+  padding: 5px;
+}

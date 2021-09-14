@@ -20,7 +20,7 @@ function SideBar(props) {
       </div>
       <div className="d-flex flex-column justity-content-around align-items-center">
         <img className="w-50 my-5" src={`https://www.metaweather.com/static/img/weather/${props.weather.weather_state_abbr}.svg`} alt="" />
-        <div className="card-body d-flex justify-content-center align-items-center bgLittle text-warning text-center">
+        <div className="card-body d-flex justify-content-center align-items-center text-warning text-center">
           <spam className="sizeFirst fw-bold"> 
           { 
           props.celcius?
